@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+SterlingWiki | {{title}}
+{% endblock %}
+
+
+{% block body %}
+<br> 
+
+
+{{ content|safe }}
+
+<br>   <b style=" font-family: 'Poppins', sans-serif;   color: red;
+text-shadow: 0.8px 0.8px 0.8px  #000000;"> Familiar with this topic and Know more? </b> <b> Click to contribute</b>
+<a href="{%url 'edit_page' title%}">
+  <button type="submit"  style="border-radius: 12px; border: thin, black;    border-width: thick;" type="submit">Edit Topic</button>
+</a> <br> <br>
+{% endblock %}

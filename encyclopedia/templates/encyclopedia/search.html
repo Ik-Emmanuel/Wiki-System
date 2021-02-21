@@ -1,0 +1,17 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+SterlingWiki
+{% endblock %}
+
+{% block body %}
+{% load static %} <br> <br> 
+<h3 style=" font-family: 'Poppins', sans-serif;"> <b style="text-shadow: 0.9px 1px 1px #000000;"> Here's what I found for that... </b></h3>
+
+<ul>
+    {% for entry in entries %}
+    <li><a href="{% url 'wiki' entry %} " style=" color: red; text-decoration: none;">{{ entry }}</a></li>
+    {% endfor %}
+</ul> <br> <br> 
+<img src="{% static 'encyclopedia/robo.png' %}"  alt="" style="height: 250px; width: 350px; float: right; padding-right: 3em;">
+{% endblock %}

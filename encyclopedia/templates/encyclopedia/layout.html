@@ -1,0 +1,115 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+        <link href="https://azermstorage.blob.core.windows.net/appimages/favicon.png" rel="icon">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="{% static 'encyclopedia/styles.css' %}" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <style>
+        input[type="text"] {  
+                text-align: center; 
+            } 
+
+            a{
+                color: rgb(0, 0, 0);
+                text-shadow: 0.8px 0.8px 0.8px  #000000;"
+            }
+
+        a:hover{
+            color: rgb(253, 0, 0);
+                text-shadow: 0.8px 0.8px 0.8px  #000000;"
+        }
+button:hover{
+    box-shadow: 3px 3px 3px rgb(19, 1, 53);
+}
+     .main a {
+         text-decoration: none;
+
+     } 
+
+     .main{
+         overflow: hidden;
+     }   
+   </style>
+    </head>
+    <body>
+        <div class="row" >
+           
+            <div class="sidebar col-lg-3 col-md-3" style=" background-image: linear-gradient(rgba(10, 0, 39, 0.938), rgba(252, 252, 252, 0.938)), url(https://azermstorage.blob.core.windows.net/appimages/bdp.png); background-repeat: repeat-y; background-size: 25em;">
+
+                <div>
+                    
+                <div style="justify-content: center; display: flex;">
+                    <img style=" align-self: center; height: 79px; width: 73px;" src="https://azermstorage.blob.core.windows.net/appimages/sterlingbig.png" alt="logo" class="logo">
+                </div>
+              
+                <h1 style="font-family: 'Playfair Display', sans-serif; text-align: center; color: white; text-shadow: 1px 2px 3px #000000;" >     Sterling Wiki (prototype) </h1> 
+            </div>
+            <div> <br>
+                <form autocomplete="off" action="{% url 'search' %}" method="POST">
+                    {% csrf_token %}
+                     <input class="search" type="text" name="text" placeholder="Enter keyword to search"  required=required style=" border: solid, black;    border-width: thick; border-radius: 19px; height: 40px; background-color: white;"> 
+                     <br> 
+                  
+<img  style="height: 30px; width: 35px; margin-left: 50px;" src="{% static 'encyclopedia/search.png' %}" alt="logo" class="logo">   <input type="submit" value="Search"  class= "submit" style=" border-radius: 13px; border: thin, black;    border-width: thick; padding: 1px;  width: 90px; font-family: 'Poppins', sans-serif;"> <img src="{% static 'encyclopedia/robo4.png' %}" alt="" style="height: 70px; width: 45px;">
+                </form>  
+            </div>
+
+             <br>
+            <div>
+                
+                <div style="margin-left: 10px;">
+                    <img  style="height: 20px; width: 20px; " src="{% static 'encyclopedia/ss.png' %}" alt="logo" class="logo">   <a href="{% url 'index' %}" style="  text-decoration: none; font-family: 'Poppins', sans-serif; padding-left: 1em;"> <b style="font-size: medium;   font-weight: 700px;  text-shadow: 0.8px 1px 0px  #ffffff;"> Home</b></a>
+                </div>
+                <div style="margin-left: 10px;">
+                    <img  style="height: 20px; width: 20px; " src="{% static 'encyclopedia/ss.png' %}" alt="logo" class="logo">   <a href="{% url 'allpages' %}" style="  text-decoration: none; font-family: 'Poppins', sans-serif;  padding-left: 1em;"><b style="font-size: medium; text-shadow: 0.8px 1px 0px  #ffffff; "> All Pages</b></a>
+                </div>
+                 <div style="margin-left: 10px; font-family: 'Poppins', sans-serif;">
+                    <img  style="height: 20px; width: 20px; " src="{% static 'encyclopedia/ss.png' %}" alt="logo" class="logo"> <a href="{%url 'add_page' %}" style="  text-decoration: none;font-family: 'Poppins', sans-serif;  padding-left: 1em;">  <b style="font-size: medium; text-shadow: 0.8px 1px 0px  #ffffff;"> Create a New Topic</b> </a>
+                </div>
+                <div style="margin-left: 10px; font-family: 'Poppins', sans-serif;">
+                    <img  style="height: 20px; width: 20px;" src="{% static 'encyclopedia/ss.png' %}" alt="logo" class="logo">  <a href="{% url 'howto' %}" style="  text-decoration: none; font-family: 'Poppins', sans-serif;  padding-left: 1em;"> <b style="font-size: medium; text-shadow: 0.8px 1px 0px  #ffffff;"> How to Create/Edit a Page</b> </a>
+                </div>
+                <!-- <div style="margin-left: 10px; font-family: 'Poppins', sans-serif;">
+                    <img  style="height: 25px; width: 25px;" src="{% static 'encyclopedia/ss.png' %}" alt="logo" class="logo">  <a href="{% url 'infosource' %}" style="  text-decoration: none; font-family: 'Poppins', sans-serif;"> <b style="font-size: medium;  padding-left: 1em; text-shadow: 0.8px 1px 0px  #ffffff;"> Chat with Infosource</b> </a>
+                </div> -->
+                <br>
+
+             <br> <b style=" font-family: 'Poppins', sans-serif; font-size: 15px;"> Want to learn something new today? </b> <br> 
+               <b style="padding-left:2em; font-family: 'Poppins', sans-serif;">  <img  style="height: 40px; width: 30px;" src="{% static 'encyclopedia/arrr.gif' %}" alt="logo" class="logo">Click Here  <img  style="height: 40px; width: 30px;" src="{% static 'encyclopedia/arrr.gif' %}" alt="logo" class="logo"></b>
+                <div style="margin-left: 10px;">
+                   <button style="border-radius: 12px; border: thin, black;    border-width: thick;"> <a href="{%url 'random_page'%}" style="  text-decoration: none;"><b style="font-family: 'Poppins', sans-serif; text-shadow: 0.8px 1px 0px  #ffffff;"> Generate Random Pages</b> </a></button> 
+                </div>
+
+
+
+
+
+
+                
+            </div>
+                {% block nav %}
+                {% endblock %}
+            </div>
+            <div class="main col-lg-9 col-md-9 " style=" max-height: 100vh;  overflow: auto; background-image: linear-gradient(rgba(255, 255, 255, 0.962), rgba(252, 252, 252, 0.938)), url(https://azermstorage.blob.core.windows.net/appimages/bdp.png); background-repeat: repeat-y; background-size: 100%; padding: 25px;" >
+              
+               <button style="float: right; margin-right: 2em; border-radius: 12px; border: thin, black;  background-image: linear-gradient(rgba(10, 0, 39, 0.938), rgba(252, 252, 252, 0.938));  border-width: thick; color: rgb(6, 3, 51);  text-shadow: 0.9px 0.9px 1px #000000;"> <a href="{% url 'authapp:signout' %}" style="color: white; text-decoration: no;"> <b style=" font-family: 'Poppins',sans-serif; color: white; text-decoration: none;"> Logout </b></a></button>
+              
+               {% block body %}
+                {% endblock %}
+            </div>
+        </div>
+
+    </body>
+</html>
+
+<!-- <img  style="height: 18px; width: 22px;" src="https://sterlinglegal.blob.core.windows.net/appimages/search.png" alt="logo" class="logo"> -->

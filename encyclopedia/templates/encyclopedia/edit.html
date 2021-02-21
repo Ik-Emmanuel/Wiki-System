@@ -1,0 +1,36 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+SterlingWiki | Edit {{title}}
+{% endblock %}
+
+{% block body %}
+{% load static %}
+
+{% if available == True %}
+<div class="alert alert-danger" style = "text-align: center;" role="alert">
+   <b> Sorry this title already exists. Try a different title.</b>
+</div>
+{%endif%}
+<div class="newpage" style="padding-top:10px;">
+    <form method="POST">
+        {%csrf_token%}
+
+        <h1 style="font-family: 'Playfair Display', sans-serif; text-align: center;text-shadow: 0.9px 1px 1px #000000; font-size:calc(1em + 2.3vw);">  Edit Wiki Page </b></h1> <br> 
+        <b  style="font-family: 'Poppins', sans-serif; text-align: center;">Remember to <b style="color: red;">  clear all empty spaces  between texts </b>  before you save to keep the post nice and tidy for the next contributor. Add a fullstop (.) at the end of the last contributors line, go to a new line and begin yours or go to already inputted lines of text and add more words.</b> <br> <br>  <br>
+        <p style=" font-family: 'Poppins', sans-serif;"> <b> Don't know how to edit markdown content? click  <a href="{% url 'index' %}" style=" color: red; text-decoration: none; font-family: 'Poppins', sans-serif;">Here </a> to learn how </a> </b></p>
+        <h1>{{title}}</h1> <b> Now editing...</b>
+       
+        <textarea name="newcontent"  required=required class="form-control" autocomplete="off" rows="15" placeholder=" Start typing page content here in markdown language" style="width: 90%;
+        margin-top: 10px; border: solid, rgb(0, 0, 0);    border-width: thick; border-radius: 19px;  background-color: white;">{{content}}</textarea>
+
+<img src="{% static 'encyclopedia/robo3.png' %}" alt="" style="height: 220px; width: 180px; float: left;">  <br>      <button type="submit"  style="border-radius: 12px; border: thin, black;    border-width: thick;" type="submit">Save Edit</button>    
+    
+<h1>  <b style=" font-family: 'Playfair Display', sans-serif;"> Thank you for contributing! </b></h1>
+</form> 
+    
+
+</div>
+
+
+{% endblock %}

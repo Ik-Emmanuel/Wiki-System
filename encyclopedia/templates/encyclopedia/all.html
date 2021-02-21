@@ -1,0 +1,39 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+SterlingWiki
+{% endblock %}
+
+{% block body %}
+{% load static %}
+
+<style>
+    #container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    #container > div {
+        background-color: rgb(255, 255, 255);
+        font-size: 17px;
+        margin: 20px;
+        padding: 10px;
+        width: 250px;
+       max-height: 70px;
+       overflow: auto;
+       overflow: hidden;
+    }
+</style> <br> 
+
+<h1 style="font-family: 'Playfair Display', sans-serif; text-align: center; font-size: 3.5vw; text-shadow: 0.9px 1px 1px #000000;">  Sterling Wiki Pages </b> <img src="{% static 'encyclopedia/robo4.png' %}" alt="" style="height: 10vw; width: 8vw;"> </h1> 
+
+<div id="container">
+    {% for entry in entries %}
+    <div style=" background-image: linear-gradient(rgba(10, 0, 39, 0.548), rgba(252, 135, 135, 0.301)); border-radius: 8px; text-align: center; box-shadow: 5px 5px 5px rgb(0, 0, 0);"><b style=" font-family: 'Poppins';text-shadow: 0.5px 0.5px 0.5px #000000;"> <a href="{% url 'wiki' entry %}" style="text-decoration: none; text-shadow: 0.8px 1px 0px  #ffffff; "> {{ entry }} </a> </b></div>
+    {% endfor %}
+    
+</div>
+
+
+
+{% endblock %}

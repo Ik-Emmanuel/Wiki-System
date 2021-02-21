@@ -1,0 +1,4 @@
+# Data integration strategy
+Data integration deals with the integration of enterprise data across applications to build a single  consolidated view of enterprise business performance. Data integration strategy deals with the optimal way  in which enterprises can build the single consolidated view of business operations and performance.
+
+Data integration strategy looks at the best possible integration architecture and the use of re-useable integration components while integrating new sources of data. The integration architecture looks at  integration options with source system applications and the most optimal way to pull/push the information  into the EDW [Enterprise Data Warehouse](/wiki/wiki/Enterprise data warehouse) and downstream data marts. 

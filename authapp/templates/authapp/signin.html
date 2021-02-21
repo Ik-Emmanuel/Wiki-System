@@ -1,0 +1,78 @@
+{% extends 'authapp/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+
+<div class="limiter">
+	<div class="container-login100" style="background-image: linear-gradient(rgba(10, 0, 39, 0.966), rgba(253, 215, 215, 0.877)), url(https://azermstorage.blob.core.windows.net/appimages/bdp.png); background-repeat: repeat-y; background-size: 100%;">
+		<div class="wrap-login100 p-l-55 p-r-55 p-t-55 p-b-24" style=" background-image: linear-gradient(rgba(255, 255, 255, 0.911), rgba(252, 252, 252, 0.938)), url(https://azermstorage.blob.core.windows.net/appimages/bdp.png); background-repeat: repeat-y; background-size: 100%; border-radius: 60px;">
+			<form class="login100-form validate-form" method="POST">
+				{% csrf_token %}
+				<div style="text-align: center; justify-content: center;">
+					
+				<img style=" align-self: center; height: 79px; width: 73px;" src="https://azermstorage.blob.core.windows.net/appimages/sterlingbig.png" alt="logo" class="logo">
+				<h1 style="font-family: 'Playfair Display', sans-serif; text-align: center; color: rgb(0, 0, 0); text-shadow: 1px 2px 3px #ffffff; font-size:5vw; font-weight: normal;">     Sterling Wiki</h1> 
+			<b style="font-family: 'Playfair Display', sans-serif; text-align: center; color: rgb(0, 0, 0); text-shadow: 1px 2px 3px #ffffff;"> (A Project Prototype)</b>
+			</div>
+			<br>
+			<b style="font-family: 'Playfair Display', sans-serif; text-align: center; color: rgb(0, 0, 0); text-shadow: 1px 2px 3px #ffffff;"> Sign-in with: Username: testuser |  Password: abc123</b>
+		
+				
+			<br> <br> 
+				
+
+				<div class="wrap-input100 validate-input m-b-23" data-validate = "Username is reauired">
+					<span class="label-input100"> <b> Username </b></span>
+					<!-- <input class="input100" type="text" name="username" placeholder="Type your username"> -->
+					{{ form.username }}
+					<span class="focus-input100" data-symbol="&#xf206;"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="Password is required">
+					<span class="label-input100"><b> Password </b></span>
+					<!-- <input class="input100" type="password" name="pass" placeholder="Type your password"> -->
+					{{ form.password }}
+					<span class="focus-input100" data-symbol="&#xf190;"></span>
+				</div>
+				
+				<div class="text-right p-t-8 p-b-31">
+					
+				</div>
+				
+				<div class="container-login100-form-btn">
+					<div class="wrap-login100-form-btn">
+						<div class="login100-form-bgbtn"></div>
+						<button class="login100-form-btn">
+							Login
+						</button>
+					
+					</div> 
+					
+				</div>
+				<div style="text-align: center;">
+				<br>
+					or sign up now <a href="{% url 'authapp:signup' %} " style="color: rgb(253, 0, 0);
+					text-shadow: 0.8px 0.8px 0.8px  #000000; padding-left: 0.5em;">  Sign Up</a> </div>
+				
+				<div class="flex-col-c p-t-20">
+				
+					<!-- <p> <b> Or Sign Up Now  </b><a href="{% url 'authapp:signup' %}" style="color: red; padding: 4px;"  class="txt2">
+					<b style="color: rgb(253, 0, 0);
+					text-shadow: 0.8px 0.8px 0.8px  #000000;""> Sign Up </b> <br>   -->
+					
+					<br>
+					<br><b style="font-family: 'Poppins', sans-serif; font-size: x-small;">  Powered by</b>  <img  style="   height: 40px; width: 90px;" src="https://azermstorage.blob.core.windows.net/appimages/dataoffice2.png" alt="logo">
+		
+				</a> </p>	
+					
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

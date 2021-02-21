@@ -1,0 +1,35 @@
+<!-- this is error page  -->{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+SterlingWiki
+{% endblock %}
+
+{% block body %}
+{% load static %}
+<div class="container" style="text-align: center;"> 
+    <h1 style="font-family: 'Playfair Display', sans-serif; text-align: center; font-size:calc(1em + 2.3vw);"> <b style="text-shadow: 0.9px 1px 1px #000000;">
+            No Result or Page Found</b></h1> <br>
+
+
+    <img src="{% static 'encyclopedia/broken.png' %}" alt=""
+        style="height: 350px; width: 450px; float: right; padding-right: 1em;">
+
+
+    <h4 style="
+margin-right: 40%;
+margin-top:10%; font-family: 'Poppins', sans-serif;"> <b> {{error_message}} ...yet! </b> <br> <br>
+  </h4>
+       <div style="margin-left: 10px;">
+        <h6 style="font-family: 'Poppins', sans-serif;">  <b style="color: red;  text-shadow: 0.8px 0.8px 0.8px  #000000;">  But with your help, that can change. <br> <br> </b> <b> Help wiki improve to serve others better. <br> Create this topic so other users can find it</b> <br><br>
+            <button style="border-radius: 12px; border: thin, black;    border-width: thick;"> <a
+                    href="{%url 'add_page'%}" style="  text-decoration: none;"><b
+                        style="font-family: 'Poppins', sans-serif; color: red;"> Create Topic</b> </a></button>
+        </h6>
+    </div>
+
+
+
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+SterlingWiki
+{% endblock %}
+
+{% block body %}
+{% load static %}
+
+{% if available == True %}
+<div class="alert alert-danger" role="alert">
+    This title already exists. Try a different title.
+</div>
+{%endif%}
+<div class="container">
+<div class="newpage" style="padding-top:10px; padding-left: 30px;">
+    <h1 style="font-family: 'Playfair Display', sans-serif; text-align: center;text-shadow: 0.9px 1px 1px #000000; font-size:calc(1em + 2.3vw);">  Create New Topic </b></h1> <br> 
+    <p style=" font-family: 'Poppins', sans-serif;"> <b> Don't know how to begin? click  <a href="{% url 'index' %}" style="color: red;  text-decoration: none; font-family: 'Poppins', sans-serif;">Here </a> to learn how to create a new page  using markdown format. Everything you need to know about markdown format you can find here: <a href="https://www.markdownguide.org/basic-syntax/"  target="_blank" style="color: red;  text-decoration: none; font-family: 'Poppins', sans-serif;">Markdown Text Format </a> </b></p>
+        <form method="POST">
+        {%csrf_token%}
+        <input type="text" class="form-control" required=required name="title" placeholder="Enter Page Title Here In Normal Text Format" style="width: 90%;  border: solid, black;    border-width: thick; border-radius: 19px; height: 40px; background-color: white;" autocomplete="off"
+            required> 
+           
+        <textarea name="content" class="form-control" required=required autocomplete="off" placeholder=" Start typing page content here in markdown text format starting with:  # PageTitle  "
+            rows="15" style="width: 90%;
+                    margin-top: 50px; border: solid, rgb(0, 0, 0);    border-width: thick; border-radius: 19px;  background-color: white;"> </textarea> 
+
+<img src="{% static 'encyclopedia/robo3.png' %}" alt="" style="height: 220px; width: 180px; float: left;">  <br>   <button style="border-radius: 12px; border: thin, black;    border-width: thick;" type="submit"><b style="font-family: 'Poppins', sans-serif;"> Submit Entry</b></button> 
+<h1>  <b style=" font-family: 'Playfair Display', sans-serif;"> Thank you for contributing! </b></h1>
+</form>
+   
+</div>
+</div>
+
+{% endblock %}

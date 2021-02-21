@@ -52,7 +52,7 @@ psycopg2==2.8.6
 pycparser 
 Pygments
 pylint==2.6.0
-pyodbc==4.0.30
+
 pyparsing==2.4.7
 PyPDF2==1.26.0
 pyrsistent 
